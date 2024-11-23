@@ -46,5 +46,11 @@ O objetivo desta documentação é orientar sobre os passos necessários para co
 
 ---
 
+## Informações Importantes
+   - Sempre que for atualizar a lista do requirements.txt execute:
+   ```bash
+   pip freeze > requirements.txt
+   ```
+
 ## Última atualização
 23/11/2024 às 11:30

@@ -1,23 +1,30 @@
 {% extends '_base.html' %}
 
 {% block container %}
-<div class="container-sm mb-3">
-    <h1>Cadastro de Serviços</h1>
-    <form action="/servicos" method="post">
+<div class="container-sm">
+    <h1>Cadastrar Serviços</h1>
+    <form action="/servicos" enctype="multipart/form-data" method="post" autocomplete="off">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <input type="text" class="form-control" name="servico" id="servico_id" placeholder="Informe o Serviço Aqui" required autofocus>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" name="pwd" class="form-control" id="exampleInputPassword1">
+            <input type="file" class="form-control" name="arquivo" id="file_id" required>
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="mb-3">
+            <input type="submit" value="Cadastrar" class="btn btn-primary">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <div class="m-3 text-center">
+        <p>{{ nome }}</p>
+        <p>{{ tipo }}</p>
+        <h3>
+            {{ mensagem }}
+        </h3>
+        {% if imagem %}
+        <div class="m-auto">
+            <img src="{{ url_for('media', path=imagem) }}" alt="{{ nome }}">
+        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
